@@ -98,6 +98,14 @@ body {
     }
   }
 
+  .minimize {
+  @apply size-3.5 rounded-full bg-[#ffc030] cursor-pointer;  /* ← cursor-pointer add */
+}
+
+.maximize {
+  @apply size-3.5 rounded-full bg-[#2acb42] cursor-pointer;  /* ← cursor-pointer add */
+}
+
   #window-controls {
     @apply flex gap-2;
 

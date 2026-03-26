@@ -99,7 +99,7 @@ const Dock = () => {
                 src={`/images/${icon}`}
                 alt={name}
                 loading="lazy"
-                className={canOpen ? "" : "opacity-60"}
+                className={`w-full h-full ${canOpen ? "" : "opacity-60"}`}
               />
             </button>
           </div>

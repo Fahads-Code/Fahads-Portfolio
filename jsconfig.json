@@ -1,26 +1,15 @@
-// Yeh compilerOptions ka section hai jahan hum VS Code ko batate hain ke project ka structure aur path aliases kaise kaam karenge
 {
     "compilerOptions": {
-        "baseUrl": ".", // ka matlab hai project ka root folder, yani ab saare paths project ke root se calculate honge
-        "paths": { // paths ka use aliases define karne ke liye hota hai, taake lambe file paths likhne ki zarurat na pade
-            "#components/*": [
-                "src/components/*"
-            ],
-            "#constants/*": [
-                "src/constants/*"
-            ],
-            "#store/*": [
-                "src/store/*"
-            ],
-            "#hoc/*": [
-                "src/hoc/*"
-            ],
-            "#windows/*": [
-                "src/windows/*"
-            ]
+        "forceConsistentCasingInFileNames": false,  // ← yeh add karo
+        "paths": {
+            "#components/*": ["./src/components/*"],
+            "#constants/*": ["./src/constants/*"],
+            "#store/*": ["./src/store/*"],
+            "#hoc/*": ["./src/hoc/*"],
+            "#windows/*": ["./src/windows/*"]
         }
     },
     "include": [
         "src"
-    ] // is ka matlab hai ke, VS Code sirf src folder ko project ka part samjhega.
+    ]
 }

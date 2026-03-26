@@ -1,15 +1,31 @@
-import { navLinks, navIcons } from "#constants/index"
-import dayjs from "dayjs"
+import { navLinks, navIcons } from "#constants/index";
+import useWindowStore from "#store/window";
+import dayjs from "dayjs";
+import { useState, useEffect } from "react"; // React hooks add kiye
 
 const Navbar = () => {
+  const [time, setTime] = useState(dayjs());
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTime(dayjs());
+    }, 1000); 
+
+    return () => clearInterval(timer);
+  }, []);
+
+  const { openWindow } = useWindowStore();
+
+
+
   return (
     <nav>
       <div>
         <img src="/images/logo.svg" alt="" />
         <p className="font-bold">Fahad's Portfolio</p>
         <ul>
-          {navLinks.map(({ id, name }) => ( // yahan pr round bracket is liye lagae hain taake return keyword ka use na karna padde, auto return ho jayee
-            <li key={id}>
+          {navLinks.map(({ id, name, type }) => (
+            <li key={id} onClick={()=> openWindow(type)}>
               <p>{name}</p>
             </li>
           ))}
@@ -24,10 +40,11 @@ const Navbar = () => {
             </li>
           ))}
         </ul>
-        <time>{dayjs().format("ddd MMM D h:mm A")}</time>
+        
+        <time>{time.format("ddd MMM D h:mm:ss A")}</time>
       </div>
     </nav>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;
